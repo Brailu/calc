@@ -1,15 +1,11 @@
 # CALC
 
-A **simple** calculator written in Python.
+A simple calculator written in Python.
 
-# Requirements
+# Usage
 
-1. Python 3
-
-# How to use
-
-Just execute:
-
-    python3 calc.py
-
-And type an expression like `2 + 2`.
+    from calc.calc import BasicCalculator
+    calculator = BasicCalculator()
+    expression = "2 + 2"
+    operator, operand_1, operand_2 = calculator.evaluate_expression(expression)
+    calculator.calculate(operator, operand_1, operand_2
