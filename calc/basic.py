@@ -1,40 +1,14 @@
+"""
+basic.py
 
-class Keyboard():
-
-    def get_input(self, prompt):
-        return input(prompt)
-
-
-class Screen():
-
-    def print(self, label, value):
-        print(f"{label}: {value}")
+A basic calculator.
+"""
 
 
-class Memory():
-    
-    def write(self, line):
-        f = open("results", "a")
-        template = f"{line}\n"
-        f.write(template)
-        f.close()
-
-
-class Handler():
-
-    def handle(self, expression):
-        operator = None
-        operand_1 = None
-        operand_2 = None
-        error = None
-        try:
-            tokens = expression.split(" ")
-            operator = tokens[1]
-            operand_1 = int(tokens[0])
-            operand_2 = int(tokens[2])
-        except Exception as exception:
-            error = "You entered an invalid expression, try again"
-        return operator, operand_1, operand_2, error
+from calc.keyboard import Keyboard
+from calc.screen import Screen
+from calc.memory import Memory
+from calc.handler import Handler
 
 
 class BasicCalculator():
@@ -113,43 +87,3 @@ class BasicCalculator():
             exit()
         else:
             return int(operand_1 / operand_2)
-
-
-# PowerCalculator IS A BasicCalculator
-class PowerCalculator(BasicCalculator):
-
-    model = "power"
-
-    def calculate(self, operator, operand_1, operand_2):
-        if operator == "^" or operator == "**":
-            result = self.power(operand_1, operand_2)
-            self.print(operator, operand_1, operand_2, result)
-            self.write(operator, operand_1, operand_2, result)
-        elif operator == "%":
-            result = self.modulus(operand_1, operand_2)
-            self.print(operator, operand_1, operand_2, result)
-            self.write(operator, operand_1, operand_2, result)
-        else:
-            super().calculate(operator, operand_1, operand_2)
-
-    def power(self, operand_1, operand_2):
-        return operand_1 ** operand_2
-    def modulus(self, operand_1, operand_2):
-        return operand_1 % operand_2
-
-
-
-if __name__ == "__main__":
-
-    # Create a new calculator
-    #calculator = BasicCalculator()
-    calculator = PowerCalculator()
-
-    # Get the expression from keyboard
-    expression = calculator.get_expression()
-
-    # Evaluate the expression
-    operator, operand_1, operand_2 = calculator.evaluate_expression(expression)
-
-    # Calculate
-    calculator.calculate(operator, operand_1, operand_2)

@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: calc-brunitto
+Version: 0.1.0
+Summary: A simple calculator written in Python.
+Home-page: https://github.com/brunitto/calc
+Author: Bruno Moyle
+Author-email: brunitto@gmail.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/brunitto/calc/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# CALC
+
+A simple calculator written in Python.
+
+# Usage
+
+    from calc.calc import BasicCalculator
+    calculator = BasicCalculator()
+    expression = "2 + 2"
+    operator, operand_1, operand_2 = calculator.evaluate_expression(expression)
+    calculator.calculate(operator, operand_1, operand_2
+
+
